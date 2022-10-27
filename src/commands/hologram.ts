@@ -1,10 +1,9 @@
-import { fromRawtext, getHolograms, getTemplates, holograms, RawText, ScoreHologram, Template, TextHologram } from "../lib/Utils";
-import { CommandPosition, CommandRawText } from "bdsx/bds/command";
+import { getHolograms, getTemplates, holograms, RawText, ScoreHologram, Template, TextHologram } from "../lib/Utils";
+import { CommandPosition } from "bdsx/bds/command";
 import { CxxString } from "bdsx/nativetype";
 import { command } from "bdsx/command";
 import { events } from "bdsx/event";
 import { JsonValue } from "bdsx/bds/connreq";
-import { ServerPlayer } from "bdsx/bds/player";
 
 
 events.serverOpen.on(() => {
