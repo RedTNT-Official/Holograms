@@ -1,14 +1,14 @@
 import { getHolograms, getTemplates, holograms, RawText, ScoreHologram, Template, TextHologram } from "../lib/Utils";
-import { CommandPosition } from "bdsx/bds/command";
+import { CommandPermissionLevel, CommandPosition } from "bdsx/bds/command";
+import { JsonValue } from "bdsx/bds/connreq";
 import { CxxString } from "bdsx/nativetype";
 import { command } from "bdsx/command";
 import { events } from "bdsx/event";
-import { JsonValue } from "bdsx/bds/connreq";
 
 
 events.serverOpen.on(() => {
 
-    const cmd = command.register('hologram', 'Hologram command');
+    const cmd = command.register('hologram', 'Hologram command', CommandPermissionLevel.Operator);
 
     cmd.overload((param, origin, output) => {
         const name = param.name;
