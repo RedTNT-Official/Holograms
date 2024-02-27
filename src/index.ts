@@ -1,4 +1,4 @@
-import { CmdSelector, createDirectories, fromRawtext, getHolograms, Hologram, holograms, ScoreHologram, TextHologram, toAllPlayers } from "./lib/Utils";
+import { createDirectories, fromRawtext, getHolograms, holograms, ScoreHologram, TextHologram, toAllPlayers } from "./lib/Utils";
 import { createClientEntity, deleteAllEntities } from "./lib/clientEntity";
 import { bedrockServer } from "bdsx/launcher";
 import { ServerPlayer } from "bdsx/bds/player";
@@ -14,13 +14,10 @@ import "./commands";
 export let level: Level;
 export let scoreboard: Scoreboard;
 
-copyFileSync(join(__dirname, 'entity.json'), join(process.cwd(), 'behavior_packs/vanilla_1.16.100/entities/ender_crystal.json'));
+copyFileSync(join(__dirname, 'entity.json'), join(process.cwd(), 'behavior_packs/vanilla_1.20.50/entities/ender_crystal.json'));
 createDirectories();
 
-
-let a: CmdSelector;
 events.serverOpen.on(() => {
-    if (a === "") {}
     level = bedrockServer.level;
     scoreboard = level.getScoreboard();
 

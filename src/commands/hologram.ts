@@ -5,9 +5,7 @@ import { CxxString } from "bdsx/nativetype";
 import { command } from "bdsx/command";
 import { events } from "bdsx/event";
 
-
 events.serverOpen.on(() => {
-
     const cmd = command.register('hologram', 'Hologram command', CommandPermissionLevel.Operator);
 
     cmd.overload((param, origin, output) => {
@@ -28,14 +26,13 @@ events.serverOpen.on(() => {
     cmd.overload((param, origin, output) => {
         const name = param.name;
         const raw: RawText = param.content.value();
-        console.log(raw);
         const { x, y, z } = param.pos || origin.getEntity()?.getFeetPos()!;
 
         TextHologram.create(name, "raw", raw.rawtext, x, y ,z).save();
         output.success('Hologram created');
     }, {
         create: command.enum('option.create', 'create'),
-        text: command.enum('option.raw', 'raw'),
+        raw: command.enum('option.raw', 'raw'),
         name: CxxString,
         content: JsonValue,
         pos: [CommandPosition, true]
